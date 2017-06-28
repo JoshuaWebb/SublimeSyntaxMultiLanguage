@@ -16,12 +16,7 @@ def write_rule(stream, match, push, otherLanguageStart, shebangStart):
         - match: '{shebangStart}'
           pop: true
 
-""".format(
-        match = match,
-        push = push,
-        otherLanguageStart = otherLanguageStart,
-        shebangStart = shebangStart
-    ))
+""".format(**locals()))
 
 with open("MultiSyntax.sublime-syntax", 'w') as outStream:
     outStream.write("""\
