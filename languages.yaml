@@ -1,0 +1,35 @@
+languages:
+  - markers: ["plain", "plaintext", "none"]
+    push: scope:text.plain
+
+  - markers: ["js", "javascript"]
+    push: scope:source.js
+
+  - markers: ["cs", "c#", "csharp"]
+    push: scope:source.cs
+
+  - markers: ["sql"]
+    push: scope:source.sql
+
+  # TODO: how does a user set their prefered package?
+  # e.g. Packages/Markdown Extended/Syntaxes/Markdown Extended.sublime-syntax
+  - markers: ["md", "mdown", "markdown"]
+    push: scope:text.html.markdown
+
+  # TODO is there a difference between python2 and python3
+  - markers: ["python"]
+    shebang: true,
+    push: scope:source.python
+
+  - markers: ["bash", "shell", "sh"]
+    shebang: true,
+    push: scope:source.shell
+
+  - markers: ["XML"]
+    push: scope:text.xml
+
+  - markers: ["HTML"]
+    push: scope:text.html.basic
+
+  - markers: ["js", "javascript"]
+    push: scope:source.js
