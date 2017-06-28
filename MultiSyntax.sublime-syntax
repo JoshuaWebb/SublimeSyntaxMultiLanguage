@@ -1,0 +1,89 @@
+%YAML 1.2
+---
+name: Multi Language
+file_extensions: [untitled]
+scope: 'source.multi'
+uuid: BB3B672F-2ABB-496E-9D19-E9F1C3F082D1
+
+variables:
+  comment: '^\s*//\s*(?i)'
+
+  # These are not supported in `with_prototype`
+  # https://github.com/SublimeTextIssues/Core/issues/1488
+  langs: '(?i)js|javascript|cs|c#|csharp|sql|md|mdown|markdown|python|bash|xml|html|plain(text)?'
+  otherLangStart: '^(?={{comment}}{{langs}}$)'
+
+contexts:
+  main:
+    - match: '{{comment}}(js|javascript)$'
+      scope: comment.line
+      captures:
+        1: meta.separator
+      push: Packages/JavaScript/JavaScript.sublime-syntax
+      with_prototype:
+        - match: '^(?=\s*//\s*((?i)js|javascript|cs|c#|csharp|sql|md|mdown|markdown|python|bash|xml|html|plain(text)?)$)'
+          pop: true
+
+    - match: '{{comment}}(cs|c#|csharp)$'
+      scope: comment.line
+      captures:
+        1: meta.separator
+      push: Packages/C#/C#.sublime-syntax
+      with_prototype:
+        - match: '^(?=\s*//\s*((?i)js|javascript|cs|c#|csharp|sql|md|mdown|markdown|python|bash|xml|html|plain(text)?)$)'
+          pop: true
+
+    - match: '{{comment}}(sql)$'
+      scope: comment.line
+      captures:
+        1: meta.separator
+      push: Packages/SQL/SQL.sublime-syntax
+      with_prototype:
+        - match: '^(?=\s*//\s*((?i)js|javascript|cs|c#|csharp|sql|md|mdown|markdown|python|bash|xml|html|plain(text)?)$)'
+          pop: true
+
+    - match: '{{comment}}(md|mdown|markdown)$'
+      scope: comment.line
+      captures:
+        1: meta.separator
+      push: Packages/markdown/markdown.sublime-syntax
+      with_prototype:
+        - match: '^(?=\s*//\s*((?i)js|javascript|cs|c#|csharp|sql|md|mdown|markdown|python|bash|xml|html|plain(text)?)$)'
+          pop: true
+
+    # TODO python2 vs python3 ?
+    - match: '{{comment}}(python)$'
+      scope: comment.line
+      captures:
+        1: meta.separator
+      push: Packages/python/python.sublime-syntax
+      with_prototype:
+        - match: '^(?=\s*//\s*((?i)js|javascript|cs|c#|csharp|sql|md|mdown|markdown|python|bash|xml|html|plain(text)?)$)'
+          pop: true
+
+    - match: '{{comment}}(shell|(?:ba)?sh)$'
+      scope: comment.line
+      captures:
+        1: meta.separator
+      push: Packages/ShellScript/Shell-Unix-Generic.sublime-syntax
+      with_prototype:
+        - match: '^(?=\s*//\s*((?i)js|javascript|cs|c#|csharp|sql|md|mdown|markdown|python|bash|xml|html|plain(text)?)$)'
+          pop: true
+
+    - match: '{{comment}}(xml)$'
+      scope: comment.line
+      captures:
+        1: meta.separator
+      push: Packages/XML/XML.sublime-syntax
+      with_prototype:
+        - match: '^(?=\s*//\s*((?i)js|javascript|cs|c#|csharp|sql|md|mdown|markdown|python|bash|xml|html|plain(text)?)$)'
+          pop: true
+
+    - match: '{{comment}}(html)$'
+      scope: comment.line
+      captures:
+        1: meta.separator
+      push: Packages/HTML/HTML.sublime-syntax
+      with_prototype:
+        - match: '^(?=\s*//\s*((?i)js|javascript|cs|c#|csharp|sql|md|mdown|markdown|python|bash|xml|html|plain(text)?)$)'
+          pop: true
