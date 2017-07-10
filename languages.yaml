@@ -33,3 +33,9 @@ languages:
 
   - markers: ["js", "javascript"]
     push: scope:source.js
+
+  - markers: ["css"]
+    push: scope:source.css
+
+  - markers: ["ps1", "powershell"]
+    push: scope:source.powershell
